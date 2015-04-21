@@ -2,6 +2,8 @@ package com.kilobolt.gameobjects;
 
 import java.util.Random;
 
+import com.badlogic.gdx.math.Circle;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 
 public class Pipe extends Scrollable {
@@ -29,6 +31,18 @@ public class Pipe extends Scrollable {
 	public void reset(float newX) {
 		super.reset(newX);
 		this.height = r.nextInt(90) + 15;
+	}
+
+	public boolean collides(Bird bird) {
+		if (position.x < bird.getX() + bird.getWidth()) {
+			Circle birdCircle = bird.getBoundingCircle();
+			return Intersector.overlaps(birdCircle, barUp) ||
+					Intersector.overlaps(birdCircle, barDown) ||
+					Intersector.overlaps(birdCircle, skullUp) || 
+					Intersector.overlaps(birdCircle, skullDown);
+		}
+		return false;
+		
 	}
 	
 	@Override

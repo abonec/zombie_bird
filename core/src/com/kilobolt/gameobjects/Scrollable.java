@@ -1,6 +1,7 @@
 package com.kilobolt.gameobjects;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Vector2;
 
 public class Scrollable {
@@ -33,6 +34,9 @@ public class Scrollable {
 	public void reset(float newX) {
 		position.x = newX;
 		isScrolledLeft = false;
+	}
+	public void stop() {
+		velocity.x = 0;
 	}
 	
 	public boolean isScrolledLeft() {
