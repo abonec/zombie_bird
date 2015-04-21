@@ -11,7 +11,6 @@ public class Grass extends Scrollable {
 	@Override
 	public void update(float delta) {
 		super.update(delta);
-		Gdx.app.log("Grass", position.y + "");
 	}
 
 }
